@@ -1,0 +1,300 @@
+.navbar{
+    padding: 20px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo{
+    width: 150px;
+}
+.navbar {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar button {
+  background: none;
+  border: none;
+  color: #1c1c1c;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  padding: 5px 10px;
+}
+
+.navbar button:hover {
+  color: tomato;
+  font-weight: 500;
+}
+
+.navbar-menu{
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    color: #49557e;
+    font-size: 18px;
+}
+.navbar button {
+  background: none;
+  border: none;
+  color: #000;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 0 10px;
+}
+
+.navbar button:hover {
+  color: tomato;
+}
+
+
+.navbar-right{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.navbar button{
+    background: transparent;
+    font-size: 16px;
+    color: #49557e;
+    border: 1px solid tomato;
+    padding: 10px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.navbar button:hover {
+background-color: #fff4f2;
+}
+
+.navbar .active{
+    padding-bottom: 2px;
+    border-bottom: 2px solid #49557e;
+}
+
+.navbar li{
+    cursor: pointer;
+}
+
+.navbar-search-icon{
+    position: relative;
+}
+
+.navbar-search-icon .dot{
+    position: absolute;
+    min-width: 10px;
+    min-height: 10px;
+    background-color: tomato;
+    border-radius: 5px;
+    top: -8px;
+    right: -8px;
+}
+
+.navbar-profile{
+  position: relative;  
+}
+
+.nav-profile-dropdown{
+    position: absolute;
+    display: none;
+    right: 0;
+    z-index: 1;
+}
+
+.navbar-profile:hover .nav-profile-dropdown{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #fff2ef;
+    padding: 12px 25px;
+    border-radius: 4px;
+    border: 1px solid tomato;
+    outline: 2px solid;
+    list-style: none;
+}
+
+.nav-profile-dropdown img{
+    width: 20px;
+}
+
+.nav-profile-dropdown li:hover{
+    color: tomato;
+}
+
+.nav-profile-dropdown li{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+@media (max-width:1050px){
+    .navbar .logo{
+        width: 140px;
+    }
+
+    .navbar-menu{
+        gap: 20px;
+        font-size: 17px;
+    }
+
+    .navbar-right{
+        gap: 30px;
+    }
+
+    .navbar-right img{
+        width: 22px;
+    }
+
+    .navbar-right button{
+        padding: 8px 25px;
+    }
+}
+
+@media (max-width:900px){
+    .navbar .logo{
+        width: 120px;
+    }
+
+    .navbar-menu{
+        gap: 15px;
+        font-size: 16px;
+    }
+
+    .navbar-right{
+        gap: 20px;
+    }
+
+    .navbar-right img{
+        width: 20px;
+    }
+
+    .navbar-right button{
+        padding: 7px 20px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width:750px){
+    .navbar-menu{
+        display: none;
+    } 
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.navbar-logo img {
+  height: 40px;
+  cursor: pointer;
+}
+
+.navbar-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-buttons button {
+  background: none;
+  border: none;
+  color: #1c1c1c;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  padding: 5px 10px;
+}
+
+.navbar-buttons button:hover {
+  color: tomato;
+  font-weight: 500;
+}
+.navbar {
+  position: sticky;
+  top: 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  z-index: 1000;
+  background-color: white; /* Ensure it doesn't become transparent on scroll */
+}
+.navbar .logo {
+  width: 180px; /* Increase from 150px to 180px (or any size you want) */
+}
+
+.navbar-logo img {
+  height: 60px; /* Increase from 40px to 60px */
+}
+/* Base size */
+.navbar .logo {
+  width: max(150px, 12vw); /* Responsive width */
+}
+
+.navbar-logo img {
+  height: max(40px, 5vw);  /* Responsive height */
+  cursor: pointer;
+}
+
+/* Medium screens */
+@media (max-width: 1050px) {
+  .navbar .logo {
+    width: max(120px, 10vw);
+  }
+
+  .navbar-logo img {
+    height: max(35px, 4.5vw);
+  }
+}
+
+/* Small screens */
+@media (max-width: 750px) {
+  .navbar .logo {
+    width: max(100px, 8vw);
+  }
+
+  .navbar-logo img {
+    height: max(30px, 4vw);
+  }
+}
+/* Add this at the bottom or in a responsive section */
+
+.navbar-hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .navbar-buttons {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background-color: white;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 999;
+  }
+
+  .navbar-buttons.open {
+    display: flex;
+  }
+
+  .navbar-hamburger {
+    display: block;
+  }
+
+  .navbar {
+    position: relative;
+    flex-wrap: wrap;
+  }
+}
