@@ -9,8 +9,9 @@ const StoreContextProvider = (props) => {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [userId, setUserId] = useState(localStorage.getItem("userId") || "");
 
-  const url = "http://localhost:4000";
+  // ✅ Use VITE_API_BASE_URL from .env
 
+const url = import.meta.env.VITE_API_BASE_URL;
   const addToCart = async (itemId) => {
     setCartItems((prev) => ({
       ...prev,
@@ -18,7 +19,7 @@ const StoreContextProvider = (props) => {
     }));
 
     if (token) {
-      await axios.post(url + "/api/cart/add", { itemId }, { headers: { token } });
+      await axios.post(`${url}/api/cart/add`, { itemId }, { headers: { token } });
     }
   };
 
@@ -29,7 +30,7 @@ const StoreContextProvider = (props) => {
     }));
 
     if (token) {
-      await axios.post(url + "/api/cart/remove", { itemId }, { headers: { token } });
+      await axios.post(`${url}/api/cart/remove`, { itemId }, { headers: { token } });
     }
   };
 
@@ -45,16 +46,23 @@ const StoreContextProvider = (props) => {
   };
 
   const fetchFoodList = async () => {
-    const response = await axios.get(url + "/api/food/list");
-    setFoodList(response.data.data);
+    try {
+      const response = await axios.get(`${url}/api/food/list`);
+      setFoodList(response.data.data);
+    } catch (error) {
+      console.error("Error fetching food list:", error);
+    }
   };
 
   const loadCartData = async (token) => {
-    const response = await axios.post(url + "/api/cart/get", {}, { headers: { token } });
-    setCartItems(response.data.cartData || {});
+    try {
+      const response = await axios.post(`${url}/api/cart/get`, {}, { headers: { token } });
+      setCartItems(response.data.cartData || {});
+    } catch (error) {
+      console.error("Error loading cart:", error);
+    }
   };
 
-  // 🔁 Load on Mount
   useEffect(() => {
     const init = async () => {
       await fetchFoodList();
@@ -73,7 +81,6 @@ const StoreContextProvider = (props) => {
     init();
   }, []);
 
-  // 🔁 When logging in or registering, save userId/token
   useEffect(() => {
     if (token) {
       localStorage.setItem("token", token);
